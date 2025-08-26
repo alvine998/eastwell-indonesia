@@ -1,115 +1,133 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import { NextPage } from "next";
+import { motion } from "framer-motion";
+import { Building2, CheckCircle2, PhoneCall } from "lucide-react";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-gray-50 text-gray-900">
+      {/* Hero Section */}
+      <section className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-gray-100 to-gray-50">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-5xl font-bold mb-6"
+        >
+          Welcome to <span className="text-gray-700">Eastwell Indonesia</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="max-w-xl text-lg text-gray-600 mb-8"
+        >
+          Your trusted partner in finding and managing properties with
+          integrity, transparency, and innovation.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.7 }}
+          className="flex gap-4"
+        >
+          <Link href="/about">
+            <button className="px-6 py-3 bg-gray-800 text-white rounded-2xl shadow hover:bg-gray-900 transition">
+              Learn More
+            </button>
+          </Link>
+          <Link href="/contact">
+            <button className="px-6 py-3 bg-white border border-gray-300 rounded-2xl shadow hover:bg-gray-100 transition">
+              Contact Us
+            </button>
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Featured Properties */}
+      <section className="py-20 px-6">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Featured Properties
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[1, 2, 3].map((item) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-2xl shadow-md overflow-hidden"
+            >
+              <div className="h-48 bg-gray-200"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Property {item}</h3>
+                <p className="text-gray-600 mb-4">
+                  Modern and elegant property perfect for families and
+                  investors.
+                </p>
+                <button className="text-gray-800 font-medium hover:underline">
+                  View Details →
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 px-6 bg-gray-100">
+        <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              icon: <Building2 className="w-10 h-10 text-gray-700" />,
+              title: "Trusted Developer",
+              desc: "Years of experience in property development.",
+            },
+            {
+              icon: <CheckCircle2 className="w-10 h-10 text-gray-700" />,
+              title: "Quality Assurance",
+              desc: "We guarantee high-quality standards in every project.",
+            },
+            {
+              icon: <PhoneCall className="w-10 h-10 text-gray-700" />,
+              title: "24/7 Support",
+              desc: "Always here to assist with your property needs.",
+            },
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white rounded-2xl shadow-md p-8 text-center"
+            >
+              <div className="flex justify-center mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-6 text-center bg-gray-800 text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold mb-6"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Ready to find your dream property?
+        </motion.h2>
+        <Link href="/contact">
+          <button className="px-8 py-4 bg-white text-gray-900 rounded-2xl shadow hover:bg-gray-100 transition">
+            Get in Touch
+          </button>
+        </Link>
+      </section>
     </div>
   );
-}
+};
+
+export default Home;
