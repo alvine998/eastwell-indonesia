@@ -10,14 +10,14 @@ const jobs = [
   },
   {
     title: "Property Consultant",
-    location: "Surabaya, Indonesia",
+    location: "Jakarta, Indonesia",
     type: "Full-time",
     description:
       "Guide customers in finding their dream property with expert advice.",
   },
   {
     title: "Finance Analyst",
-    location: "Bandung, Indonesia",
+    location: "Jakarta, Indonesia",
     type: "Full-time",
     description:
       "Analyze financial data and support business decisions with insights.",

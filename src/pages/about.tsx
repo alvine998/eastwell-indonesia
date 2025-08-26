@@ -85,9 +85,8 @@ export default function AboutPage() {
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[
-            { name: "Budi Santoso", role: "CEO" },
-            { name: "Siti Aisyah", role: "Head of Operations" },
-            { name: "Andi Pratama", role: "Marketing Director" },
+            { name: "Ikna Abdul Kholik", role: "CEO" },
+            { name: "Dadang Suhendar", role: "Head of Operation" },
           ].map((member, idx) => (
             <motion.div
               key={idx}
