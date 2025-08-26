@@ -26,6 +26,7 @@ export default function Navbar() {
           <Link href="/gallery">Gallery</Link>
           <Link href="/career">Career</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/articles">Article</Link>
         </div>
 
         {/* Mobile Menu (hamburger) */}
