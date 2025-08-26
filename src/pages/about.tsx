@@ -83,7 +83,7 @@ export default function AboutPage() {
           Meet Our Team
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-10">
           {[
             { name: "Ikna Abdul Kholik", role: "CEO" },
             { name: "Dadang Suhendar", role: "Head of Operation" },
